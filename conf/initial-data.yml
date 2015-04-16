@@ -1,0 +1,46 @@
+# Users
+
+- &Einar !!models.User
+    email:      Einar@example.com
+    name:       Einar
+    password:   secret
+
+- &Bjork !!models.User
+    email:      Bjork@example.com
+    name:       Bjork
+    password:   secret
+
+- &Sveinn !!models.User
+    email:      Sveinn@example.com
+    name:       Sveinn
+    password:   secret
+
+- &Patrekur !!models.User
+    email:      Patrekur@example.com
+    name:       Patrekur
+    password:   secret
+
+- &Asta !!models.User
+    email:      Asta@example.com
+    name:       Asta
+    password:   secret
+
+- &Ingibjorg !!models.User
+    email:      Ingibjorg@example.com
+    name:       Ingibjorg
+    password:   secret
+
+- &Hafrun !!models.User
+    email:      Hafrun@example.com
+    name:       Hafrun
+    password:   secret
+
+- &Hafrun2 !!models.User
+    email:      Hafrun2@example.com
+    name:       Hafrun2
+    password:   secret
+
+
+
+
+

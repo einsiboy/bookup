@@ -1,0 +1,8 @@
+@import TvSchedule.TvProgram
+@(TV: TvProgram)
+
+    <div class="row">
+        <div class="col-md-2"><h4>@TV.getChannel</h4></div>
+        <div class="col-md-7" class="description"><h2>@TV.getTitle</h2>@TV.getDescription</div>
+        <div class="col-md-3"><button class="bg-success">Boka</button></div>
+    </div>

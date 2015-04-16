@@ -1,0 +1,8 @@
+@import Concerts.Concert
+@(consrt: Concert)
+
+<div class="row">
+    <div class="col-md-2"><h4>@consrt.getLoc</h4></div>
+    <div class="col-md-7" class="description"><h2>@consrt.getName</h2>@consrt.getTime</div>
+    <div class="col-md-3"><button class="bg-success">Boka</button></div>
+</div>

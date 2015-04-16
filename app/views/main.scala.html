@@ -1,0 +1,82 @@
+@( user: User, tvLog: List[TvLog],concertLog: List[ConcertLog])(content: Html)
+
+
+<html>
+    <head>
+        <title>Bookup - Book events in Iceland</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/font-awesome.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/roboto100.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/firasans500.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.ico")">
+        <script src="@routes.Assets.at("javascripts/jquery-1.11.2.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/headroom.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
+         <script type="text/javascript" src="@routes.Assets.at("javascripts/jquery-play-1.7.1.js")"></script>
+        <script type="text/javascript" src="@routes.Assets.at("javascripts/underscore-min.js")"></script>
+        <script type="text/javascript" src="@routes.Assets.at("javascripts/backbone-min.js")"></script>
+        <script type="text/javascript" src="@routes.Assets.at("javascripts/main.js")"></script>
+        <!-- <script type="text/javascript" src="routes.Application.javascriptRoutes()"></script> -->
+    </head>
+    <body>
+        <nav id="header" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img id="lalogo" src="@routes.Assets.at("images/logo.png")" alt="">
+                    </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <button type="reset"  id="signinBtn"   class="btn btn-default btn-lg" onclick="location.href='/login'">Sign in</button>
+                            <button type="reset" id="signupBtn" class="btn btn-default btn-lg" onclick="location.href='/logout'">Logout</button>
+                        </div>
+                    </form>
+                </div><!--/.navbar-collapse -->
+            </div>
+        </nav>
+
+            <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div id="title">
+                Logged in as @user.name<br>
+                     (@user.email)
+            </div>
+        </div>
+        <div class="container">
+            <h1 class="text-center"> Search for things to sign up for.</h1>
+            <div class="rowSearch">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <section class="search in-view">
+                        <form role="form" action="@routes.Application.search()" method="get">
+                            <input type="text" class="form-control" id="search" placeholder="Search for events in your area.." name="searchTerm">
+                            <button type="submit" class="btn">
+                                <i class="i-loupe"></i>
+                            </button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+       <!-- <aside class="pull-left">
+            <h4 class="dashboard"><a href="#/">Dashboard</a></h4>
+            <ul id="projects">
+            </ul>
+            <button id="newGroup">New group</button>
+        </aside> -->
+        <section id="Main">
+            @content
+        </section>
+    </body>
+</html>
+

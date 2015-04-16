@@ -1,0 +1,67 @@
+@(form: Form[Application.Login])
+
+@import play.mvc.Controller.flash;
+@import play.data.Form
+
+<html>
+    <head>
+        <title>Bookup</title>
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.ico")">
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/login.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+    </head>
+    <body>
+
+
+        @helper.form(routes.Application.authenticate){
+            @if(form.hasGlobalErrors) {
+                <p class="error">
+                @form.globalError.message
+                </p>
+            }
+
+            @if(flash.contains("success")) {
+                <p class="success">
+                @flash.get("success")
+                </p>
+            }
+
+            <div class="container">
+
+                <div class="row" id="pwd-container">
+                    <div class="col-md-4"></div>
+
+                    <div class="col-md-4">
+                        <section class="login-form">
+                            <div id="formLogin">
+                                <img src="@routes.Assets.at("images/logo.png")" class="img-responsive" alt="" />
+                                <input type="email" name="email" class="form-control" value="@form("email").value" placeholder="Email address" autofocus>
+
+                                <input type="password" name="password" class="form-control" placeholder="Password">
+
+
+                                <div class="pwstrength_viewport_progress"></div>
+
+
+                                <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Sign in</button>
+                                <div>
+                                    <a href="#">Create account</a> or <a href="#">reset password</a>
+                                </div>
+
+                            </div>
+
+                            <div class="form-links">
+                                <a href="#">www.website.com</a>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="col-md-4"></div>
+
+
+                </div>
+            </div>
+        }
+    </body>
+</html>
+

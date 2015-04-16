@@ -1,0 +1,32 @@
+package controllers;
+
+import models.Event;
+import play.data.Form;
+import play.db.ebean.Model;
+import play.mvc.*;
+
+import views.html.*;
+
+import java.util.List;
+
+import static play.libs.Json.toJson;
+
+public class Application extends Controller {
+
+    public static Result index() {
+        return ok(index.render("Hello World"));
+    }
+
+    public static Result addEvent() {
+        Event event = Form.form(Event.class).bindFromRequest().get();
+        event.save();
+        return redirect(routes.Application.index());
+
+    }
+
+    public static Result getEvents() {
+        List<Event> events = new Model.Finder(String.class,Event.class).all();
+        return ok(toJson(events));
+    }
+
+}
